@@ -38,7 +38,8 @@ fi
 # pane.split has no cwd argument, so the new terminal changes directory itself.
 # --resume finds the transcript by project folder, so this cwd must match.
 # Herdr starts new panes with a bare PATH; carry this session's so hooks find node and friends.
-printf -v inner 'export PATH=%q && cd %q && exec claude --resume %q --fork-session' "$PATH" "$working_directory" "$session_id"
+# Keep the IDE (VS Code) connected to the original session; the fork can still run /ide.
+printf -v inner 'export PATH=%q CLAUDE_CODE_AUTO_CONNECT_IDE=false && cd %q && exec claude --resume %q --fork-session' "$PATH" "$working_directory" "$session_id"
 
 request="$(python3 -c '
 import json, sys
