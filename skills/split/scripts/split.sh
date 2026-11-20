@@ -4,13 +4,17 @@
 set -euo pipefail
 
 session_id="${1:-}"
-direction="${2:-right}"
+placement="${2:-right}"
 working_directory="${3:-$PWD}"
 
-fail() { echo "fork-pane: $*" >&2; exit 1; }
+fail() { echo "split: $*" >&2; exit 1; }
 
 [[ -n "$session_id" && "$session_id" != *'${'* ]] || fail "no session id (needs Claude Code with \${CLAUDE_SESSION_ID})"
-[[ "$direction" == right || "$direction" == down ]] || fail "direction must be right or down, got '$direction'"
+case "$placement" in
+  right | side) direction=right ;;
+  down | below | bottom) direction=down ;;
+  *) fail "where should the fork go? right (default) or down, got '$placement'" ;;
+esac
 command -v herdr-app >/dev/null || fail "herdr-app not on PATH; run this inside the Herdr app"
 command -v python3 >/dev/null || fail "python3 is needed to read herdr-app's JSON"
 
