@@ -1,0 +1,11 @@
+{
+  "name": "herdr-fork-pane",
+  "owner": { "name": "Mayank Arora" },
+  "plugins": [
+    {
+      "name": "herdr-fork-pane",
+      "source": "./",
+      "description": "Fork the current Claude Code session into a new Herdr split pane"
+    }
+  ]
+}

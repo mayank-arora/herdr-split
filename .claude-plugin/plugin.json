@@ -1,0 +1,10 @@
+{
+  "name": "herdr-fork-pane",
+  "version": "0.1.0",
+  "description": "Fork the current Claude Code session into a new Herdr split pane",
+  "license": "MIT",
+  "repository": "https://github.com/mayank-arora/herdr-fork-pane",
+  "author": {
+    "name": "Mayank Arora"
+  }
+}
