@@ -35,6 +35,7 @@ It is also a Claude Code plugin, if you prefer `/plugin` to manage it; plugin sk
 - The fork starts in your default permission mode and settings, not the original session's flags (for example a `--permission-mode` passed on the command line).
 - The fork shows the conversation up to the `/split` call; it does not see what the original says afterwards.
 - It works only inside Herdr: outside it, `herdr-app` is missing and the command says so.
+- To close the fork, use Cmd+Shift+W (closes one pane). In Herdr's default keys, Cmd+W closes the whole tab, both sessions included. To swap them, edit `cmd-w` and `cmd-shift-w` in `~/.config/herdr-app/keys.json`; Herdr then stops adding new default shortcuts to that file on upgrades.
 
 ## Licence
 
